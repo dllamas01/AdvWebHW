@@ -1,0 +1,34 @@
+doctype html
+html
+    head
+        title Personality Perfect Survey
+        link(href='/css/bootstrap.css' rel='stylesheet')
+        link(rel="stylesheet" href="/css/main.css")
+        script(src='/js/bootstrap.js' type='application/javascript')
+    body
+        // Navigation
+        nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.static-top
+            .container
+                a.navbar-brand(href='#')
+                    img(src='/imgs/personalityLogo.png' alt='Logo' height='50')
+                button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+                    span.navbar-toggler-icon
+                #navbarSupportedContent.collapse.navbar-collapse
+                    ul.navbar-nav.ms-auto
+                        if pageTitle == 'Home'
+                            li.nav-item
+                                a.nav-link.active(aria-current='page' href='/survey') Home
+                            li.nav-item
+                                a.nav-link(href='/about') About
+                        else if pageTitle == 'About'
+                            li.nav-item
+                                a.nav-link(href='/survey') Home
+                            li.nav-item
+                                a.nav-link.active(aria-current='page' href='/about') About
+                        else
+                            li.nav-item
+                                a.nav-link(href='/survey') Home
+                            li.nav-item
+                                a.nav-link(href='/about') About
+
+        block content

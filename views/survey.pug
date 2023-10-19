@@ -1,0 +1,13 @@
+include layouts/mainlayout
+
+block content
+    h1 #{pageTitle}
+    form(action="/submitSurvey" method="POST")
+        each question in questions
+            div
+                label(for=question.id) #{question.q}
+                select(name=question.id id=question.id)
+                    option(value="1") A little
+                    option(value="2") Somewhat
+                    option(value="3") Very much
+        button.btn.btn-primary(type="submit") Submit Form

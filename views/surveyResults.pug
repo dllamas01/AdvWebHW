@@ -1,0 +1,15 @@
+include layouts/mainlayout
+
+block content
+    h1 #{pageTitle}
+    each category in categories
+        h2 #{category.cat}
+        p #{category.desc}
+        if category.score >= (0.75 * MAX_PTS)
+            div(style="background-color: greenyellow;") Score: #{category.score}
+        else if category.score >= (0.5 * MAX_PTS)
+            div(style="background-color: yellow;") Score: #{category.score}
+        else
+            div(style="background-color: #FFAA33;") Score: #{category.score}
+
+    a(href="/survey") Retake the survey
