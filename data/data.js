@@ -16,7 +16,7 @@ let categories = [
     }
 ];
 
-const MAX_PTS = 6;
+const maximumPts = 6;
 
 let questions = [
     { id: 'q1', q: "Are you naturally observant?", cat: 0 },
@@ -30,8 +30,30 @@ let questions = [
     { id: 'q9', q: "Are you a good judge of character?", cat: 2 }
 ];
 
+function calculateScores(reqBody) {
+    let results = {};
+
+    for (let categ of categories) {
+        let score = 0;
+
+        let simQuestions = questions.filter(question => question.cat === categ.catId);
+
+        for (let question of simQuestions) {
+            score += parseInt(reqBody[question.id]);
+        }
+
+        results[categ.cat] = {
+            score: score,
+            desc: categ.desc,
+            cat: categ.cat
+        };
+    }
+    return results;
+}
+
 module.exports = {
     categories,
     questions,
-    MAX_PTS
+    maximumPts,
+    calculateScores
 };

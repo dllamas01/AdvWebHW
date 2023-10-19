@@ -1,13 +1,12 @@
 include layouts/mainlayout
-
 block content
     h1 #{pageTitle}
     each category in categories
         h2 #{category.cat}
         p #{category.desc}
-        if category.score >= (0.75 * MAX_PTS)
+        if category.score >= (0.75 * maximumPts)
             div(style="background-color: greenyellow;") Score: #{category.score}
-        else if category.score >= (0.5 * MAX_PTS)
+        else if category.score >= (0.5 * maximumPts)
             div(style="background-color: yellow;") Score: #{category.score}
         else
             div(style="background-color: #FFAA33;") Score: #{category.score}
