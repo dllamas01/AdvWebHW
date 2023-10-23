@@ -3,7 +3,6 @@ const router = express.Router();
 const path = require("path");
 const { categories, questions, maximumPts, calculateScores } = require('../data/data.js');
 router.get('/notFound', (req, res) => {
-    console.log('Attempting to render About...');
     res.render('notFound', {
         pageTitle: 'survey',
         from: 'home',
